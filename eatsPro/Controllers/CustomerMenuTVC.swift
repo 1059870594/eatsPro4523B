@@ -10,7 +10,7 @@ import UIKit
 class CustomerMenuTVC: UITableViewController {
 
     @IBOutlet weak var Avatar: UIImageView!
-    @IBOutlet weak var labelTag: UILabel!
+    @IBOutlet weak var labelName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class CustomerMenuTVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        labelTag.text = User.currUser.name
+        labelName.text = User.currUser.name
         Avatar.image = try! UIImage(data: Data(contentsOf: URL(string: User.currUser.pictureURL!)!))
         Avatar.layer.cornerRadius = 35
         Avatar.layer.borderWidth = 1

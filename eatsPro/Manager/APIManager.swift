@@ -16,7 +16,7 @@ class APIManager {
     
     // API func for login
     func login(userType: String, completionHandler: @escaping(NSError?) -> Void) {
-        let path = "api/social/convert-token/"
+        let path = "api/facebook/convert-token/"
         let url = initURL!.appendingPathComponent(path)
         let params: [String: Any] = [
             "grant_type": "convert_token",
@@ -24,7 +24,7 @@ class APIManager {
             "client_secret": CLIENT_SECRET,
             "backend": "facebook",
             "token": AccessToken.current!.tokenString,
-            "user_type": userType
+            "user_type": "customer"
         ]
         
         AF.request(url!, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).responseJSON { response in
@@ -47,7 +47,7 @@ class APIManager {
     
     // API func for logout
     func logout(completionHandler: @escaping(NSError?) -> Void) {
-        let path = "api/social/revoke-token/"
+        let path = "api/facebook/revoke-token/"
         let url = initURL!.appendingPathComponent(path)
         let params: [String: Any] = [
             "client_id": CLIENT_ID,
@@ -70,7 +70,7 @@ class APIManager {
     
     // API to refresh the access token when it's expired
     func refreshTokenIfNeed(completionHandler: @escaping() -> Void) {
-        let path = "api/social/refresh-token/"
+        let path = "api/facebook/refresh-token/"
         let url = initURL!.appendingPathComponent(path)
         let params: [String: Any] = [
             "access_token": self.accessToken,
@@ -104,7 +104,7 @@ class APIManager {
     
     // API to refresh all restaurants
     func getRestaurants(completionHandler: @escaping(JSON?) -> Void){
-        let path = "api/customer/resaurants/"
+        let path = "api/customer/restaurant/"
         let url = initURL?.appendingPathComponent(path)
         
         refreshTokenIfNeed {

@@ -13,5 +13,6 @@ target 'eatsPro' do
   pod 'FBSDKShareKit', '11.0.1'
   pod 'Alamofire', '5.4.3'	
   pod 'SwiftyJSON'
+  pod 'SkeletonView', '1.21.1'
 
 end
