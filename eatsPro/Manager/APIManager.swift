@@ -100,15 +100,14 @@ class APIManager {
         }
     }
     
-
     
-    // API to refresh all restaurants
-    func getRestaurants(completionHandler: @escaping(JSON?) -> Void){
-        let path = "api/customer/restaurant/"
+    //Request Server function
+    func requestServer(_ method: Alamofire.HTTPMethod, _ path: String,_ params: [String: Any]?,_ encoding: ParameterEncoding, _ completionHandler: @escaping(JSON?) -> Void){
+        
         let url = initURL?.appendingPathComponent(path)
         
         refreshTokenIfNeed {
-            AF.request(url!, method: .get, parameters: nil, encoding: JSONEncoding.default)
+            AF.request(url!, method: method, parameters: params, encoding: encoding)
                 .responseJSON{ response in
                     switch response.result{
                     case .success(let value):
@@ -123,6 +122,19 @@ class APIManager {
                     }
                 }
         }
+    }
+
+    
+    // API to refresh all restaurants
+    func getRestaurants(completionHandler: @escaping(JSON?) -> Void){
+        let path = "api/customer/restaurant/"
+        requestServer(.get, path, nil, JSONEncoding.default, completionHandler)
+    }
+    
+    // API to fetch all meals of a restaurant
+    func getMeals(restaurantId: Int, completionHandler: @escaping(JSON?) -> Void){
+        let path = "api/customer/restaurant/meals/\(restaurantId)"
+        requestServer(.get, path, nil, JSONEncoding.default, completionHandler)
     }
     
 }

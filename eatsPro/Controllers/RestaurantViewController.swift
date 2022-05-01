@@ -40,6 +40,12 @@ class RestaurantViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "ViewMealList"{
+            let controller = segue.destination as! MealTableViewController
+            controller.restaurant = restaurants[(tableViewRestaurant.indexPathForSelectedRow!.row)] //should be able to display resName on top
+        }
+    }
 
     func fetchRestaurants(){
         APIManager.session.getRestaurants{ json in
@@ -63,18 +69,6 @@ class RestaurantViewController: UIViewController {
             }
             
         }
-    }
-    
-    func loadImage(imageView : UIImageView, urlString: String){
-        let imgURL: URL = URL(string: urlString)!
-        URLSession.shared.dataTask(with: imgURL){
-            (data, response, error) in
-            guard let data = data, error == nil else { return }
-            
-            DispatchQueue.main.async{
-                imageView.image = UIImage(data: data)
-            }
-        }.resume()
     }
 
 }
@@ -118,7 +112,7 @@ extension RestaurantViewController: SkeletonTableViewDataSource{
         
         if let logo = restaurant.logo{
             let url = "\(logo)"
-            loadImage(imageView: cell.imageResLogo, urlString: url)
+            Utils.loadImage(cell.imageResLogo, url)
         }
         
         return cell

@@ -209,7 +209,7 @@
                                             <outlet property="imageResLogo" destination="4ni-4L-xgz" id="1zD-j4-fF0"/>
                                             <outlet property="labelResAddress" destination="itP-4y-hoQ" id="RVV-16-bNt"/>
                                             <outlet property="labelResName" destination="HyY-1W-Fpv" id="Wi7-fQ-ix0"/>
-                                            <segue destination="3Sb-IC-Izi" kind="show" id="BGU-ge-CCS"/>
+                                            <segue destination="3Sb-IC-Izi" kind="show" identifier="ViewMealList" id="BGU-ge-CCS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -260,7 +260,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealCell" id="20H-kO-qy4">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealCell" id="20H-kO-qy4" customClass="MealViewCell" customModule="eatsPro" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="20H-kO-qy4" id="R9P-aZ-1e0">
@@ -312,6 +312,10 @@
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
+                                    <outlet property="imageMealImage" destination="8lX-br-vCe" id="Uww-pZ-W1a"/>
+                                    <outlet property="labelMealDescription" destination="TUV-3y-Gyd" id="o0F-6t-idp"/>
+                                    <outlet property="labelMealPrice" destination="uaF-gS-gvI" id="rxb-sj-NJc"/>
+                                    <outlet property="mealName" destination="aDQ-nw-DYN" id="SFE-6p-pcf"/>
                                     <segue destination="OUH-83-JNz" kind="show" identifier="MealDetails" id="9Ne-4N-fgf"/>
                                 </connections>
                             </tableViewCell>

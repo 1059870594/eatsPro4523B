@@ -8,16 +8,39 @@
 import UIKit
 
 class MealTableViewController: UITableViewController {
+    
+    var restaurant: Restaurant?
+    var meals = [Meal]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        if let restaurantName = restaurant?.name{
+            self.navigationItem.title = restaurantName
+        }
+        
+        self.fetchMeal()
     }
+    
+    func fetchMeal(){
+        if let restaurantId = restaurant?.id{
+            APIManager.session.getMeals(restaurantId: restaurantId) { json in
+                if json != nil{
+                    print(json!)
+                    
+                    self.meals = []
+                    if let meals = json!["meals"].array{
+                        for i in meals{
+                            self.meals.append(Meal(json: i))
+                        }
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
+    
+    
 
     // MARK: - Table view data source
 
@@ -28,15 +51,22 @@ class MealTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return meals.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MealCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MealCell", for: indexPath) as! MealViewCell
 
-        // Configure the cell...
+        let meal = meals[indexPath.row]
+        cell.mealName.text = meal.name
+        cell.labelMealDescription.text = meal.description
+        cell.labelMealPrice.text = "$\(meal.price!)"
 
+        if let image = meal.image {
+            Utils.loadImage(cell.imageMealImage,"\(image)")
+        }
+        
         return cell
     }
     

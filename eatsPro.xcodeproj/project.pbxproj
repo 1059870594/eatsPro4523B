@@ -29,6 +29,9 @@
 		BF93EE82281C41BB0049563F /* CustomerMenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF93EE81281C41BB0049563F /* CustomerMenuTVC.swift */; };
 		BF982C00281DFC2200860093 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF982BFF281DFC2200860093 /* Restaurant.swift */; };
 		BF982C02281DFDCA00860093 /* RestaurantViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF982C01281DFDCA00860093 /* RestaurantViewCell.swift */; };
+		BFA42BE0281F27A90085CA88 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA42BDF281F27A90085CA88 /* File.swift */; };
+		BFA42BE2281F28B50085CA88 /* MealViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA42BE1281F28B50085CA88 /* MealViewCell.swift */; };
+		BFA42BE4281F35F70085CA88 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA42BE3281F35F70085CA88 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		BF93EE81281C41BB0049563F /* CustomerMenuTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerMenuTVC.swift; sourceTree = "<group>"; };
 		BF982BFF281DFC2200860093 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		BF982C01281DFDCA00860093 /* RestaurantViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewCell.swift; sourceTree = "<group>"; };
+		BFA42BDF281F27A90085CA88 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		BFA42BE1281F28B50085CA88 /* MealViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewCell.swift; sourceTree = "<group>"; };
+		BFA42BE3281F35F70085CA88 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 			children = (
 				BF93EE7F281C40320049563F /* User.swift */,
 				BF982BFF281DFC2200860093 /* Restaurant.swift */,
+				BFA42BDF281F27A90085CA88 /* File.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -95,6 +102,7 @@
 				BF93EE77281B85BA0049563F /* PaymentViewController.swift */,
 				BF93EE79281B8E110049563F /* DeliveryViewController.swift */,
 				BF982C01281DFDCA00860093 /* RestaurantViewCell.swift */,
+				BFA42BE1281F28B50085CA88 /* MealViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -105,6 +113,7 @@
 				BF93EE7B281C34CB0049563F /* FBManager.swift */,
 				27F1F590281C8C090010394E /* APIManager.swift */,
 				27F1F592281C8F7C0010394E /* Constants.swift */,
+				BFA42BE3281F35F70085CA88 /* Utils.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -297,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFA42BE2281F28B50085CA88 /* MealViewCell.swift in Sources */,
 				BF93EE7C281C34CB0049563F /* FBManager.swift in Sources */,
 				BF93EE71281B651B0049563F /* MealDetailsViewController.swift in Sources */,
 				BF93EE7A281B8E110049563F /* DeliveryViewController.swift in Sources */,
@@ -304,12 +314,14 @@
 				BF982C00281DFC2200860093 /* Restaurant.swift in Sources */,
 				BF93EE55281B25870049563F /* AppDelegate.swift in Sources */,
 				27F1F593281C8F7C0010394E /* Constants.swift in Sources */,
+				BFA42BE0281F27A90085CA88 /* File.swift in Sources */,
 				BF93EE73281B6EB20049563F /* CartViewController.swift in Sources */,
 				27F1F591281C8C090010394E /* APIManager.swift in Sources */,
 				BF982C02281DFDCA00860093 /* RestaurantViewCell.swift in Sources */,
 				BF93EE57281B25870049563F /* SceneDelegate.swift in Sources */,
 				BF93EE6F281B5CF70049563F /* MealTableViewController.swift in Sources */,
 				BF93EE82281C41BB0049563F /* CustomerMenuTVC.swift in Sources */,
+				BFA42BE4281F35F70085CA88 /* Utils.swift in Sources */,
 				BF93EE80281C40320049563F /* User.swift in Sources */,
 				BF93EE78281B85BA0049563F /* PaymentViewController.swift in Sources */,
 				BF93EE6B281B2E420049563F /* SWRevealViewController.m in Sources */,
