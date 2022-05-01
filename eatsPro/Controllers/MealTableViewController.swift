@@ -25,11 +25,11 @@ class MealTableViewController: UITableViewController {
     func fetchMeal(){
         if let restaurantId = restaurant?.id{
             APIManager.session.getMeals(restaurantId: restaurantId) { json in
-                if json != nil{
+                if json != nil {
                     print(json!)
                     
                     self.meals = []
-                    if let meals = json!["meals"].array{
+                    if let meals = json!["foodItems"].array {
                         for i in meals{
                             self.meals.append(Meal(json: i))
                         }
