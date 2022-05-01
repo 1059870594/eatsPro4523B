@@ -40,7 +40,12 @@ class MealTableViewController: UITableViewController {
         }
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ViewMealDetails" {
+            let controller = segue.destination as! MealDetailsViewController
+            controller.meal = meals[(tableView.indexPathForSelectedRow!.row)]
+        }
+    }
 
     // MARK: - Table view data source
 

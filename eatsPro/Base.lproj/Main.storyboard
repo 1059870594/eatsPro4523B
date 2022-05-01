@@ -316,7 +316,7 @@
                                     <outlet property="labelMealDescription" destination="TUV-3y-Gyd" id="o0F-6t-idp"/>
                                     <outlet property="labelMealPrice" destination="uaF-gS-gvI" id="rxb-sj-NJc"/>
                                     <outlet property="mealName" destination="aDQ-nw-DYN" id="SFE-6p-pcf"/>
-                                    <segue destination="OUH-83-JNz" kind="show" identifier="MealDetails" id="9Ne-4N-fgf"/>
+                                    <segue destination="OUH-83-JNz" kind="show" identifier="ViewMealDetails" id="9Ne-4N-fgf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -369,6 +369,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Add to Cart">
                                             <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addToCart:" destination="OUH-83-JNz" eventType="touchUpInside" id="KfN-WX-JjK"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$13.75" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTS-7P-j7w">
                                         <rect key="frame" x="318" y="30" width="66" height="20"/>
@@ -406,6 +409,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="-">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="decreaseQty:" destination="OUH-83-JNz" eventType="touchUpInside" id="B3U-C8-MUl"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkO-Wg-8Vu">
                                         <rect key="frame" x="100" y="0.0" width="50" height="50"/>
@@ -418,6 +424,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="+">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="increaseQty:" destination="OUH-83-JNz" eventType="touchUpInside" id="gp0-cq-JUh"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pH7-We-LbU">
                                         <rect key="frame" x="68.5" y="11.5" width="13" height="27"/>
@@ -470,8 +479,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonAddToCart" destination="8Tf-8H-iNL" id="PIC-CH-H5c"/>
                         <outlet property="buttonMinus" destination="hT0-5C-6bS" id="mAI-ge-d9Q"/>
                         <outlet property="buttonPlus" destination="wkO-Wg-8Vu" id="9d1-27-0hA"/>
+                        <outlet property="imageMealIamge" destination="FBn-lC-vCI" id="3WP-Ry-yzk"/>
+                        <outlet property="labelMealDescription" destination="GF6-xL-Nmb" id="tOX-rP-yeM"/>
+                        <outlet property="labelMealName" destination="Ifs-wU-MlK" id="2tL-Cb-n6a"/>
+                        <outlet property="labelQty" destination="pH7-We-LbU" id="nwY-Bd-Zr6"/>
+                        <outlet property="labelTotal" destination="WTS-7P-j7w" id="OJi-JZ-bkt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ybA-n8-Skh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

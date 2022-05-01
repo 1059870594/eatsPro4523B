@@ -12,34 +12,85 @@ class MealDetailsViewController: UIViewController {
     @IBOutlet weak var buttonMinus: UIButton!
     @IBOutlet weak var buttonPlus: UIButton!
     
+    @IBOutlet weak var imageMealIamge: UIImageView!
+    @IBOutlet weak var labelMealName: UILabel!
+    @IBOutlet weak var labelMealDescription: UILabel!
+    
+    @IBOutlet weak var labelQty: UILabel!
+    @IBOutlet weak var labelTotal: UILabel!
+    @IBOutlet weak var buttonAddToCart: UIButton!
+    
+    var meal: Meal?
+    var qty = 1;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//  may need this
-//        buttonMinus.layer.cornerRadius = buttonMinus.frame.width / 2
-//        buttonMinus.layer.masksToBounds = true
-//
-//        buttonMinus.backgroundColor = .clear
-//        buttonMinus.layer.borderWidth = 1
-//        buttonMinus.layer.borderColor = UIColor.systemGray5.cgColor
-//
-//        buttonPlus.layer.cornerRadius = buttonMinus.frame.width / 2
-//        buttonPlus.layer.masksToBounds = true
-//
-//        buttonPlus.backgroundColor = .clear
-//        buttonPlus.layer.borderWidth = 1
-//        buttonPlus.layer.borderColor = UIColor.systemGray5.cgColor
-        // Do any additional setup after loading the view.
+        self.formatButtons()
+        self.fetchMeal()
+        
     }
     
 
-    /*
-    // MARK: - Navigation
+    func formatButtons(){
+        buttonMinus.layer.cornerRadius = buttonMinus.frame.width / 2
+        buttonMinus.layer.masksToBounds = true
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        buttonMinus.backgroundColor = .clear
+        buttonMinus.layer.borderWidth = 1
+        buttonMinus.layer.borderColor = UIColor.systemGray5.cgColor
+
+        buttonPlus.layer.cornerRadius = buttonMinus.frame.width / 2
+        buttonPlus.layer.masksToBounds = true
+
+        buttonPlus.backgroundColor = .clear
+        buttonPlus.layer.borderWidth = 1
+        buttonPlus.layer.borderColor = UIColor.systemGray5.cgColor
     }
-    */
-
+    
+    func fetchMeal() {
+        self.labelQty.text = "\(qty)"
+        self.labelMealName.text = meal?.name
+        self.labelMealDescription.text = meal?.description
+        if let price = meal?.price {
+            labelTotal.text = "$\(price)"
+            
+        }
+                
+        if let imageUrl = meal?.image {
+            Utils.loadImage(imageMealIamge, "\(imageUrl)")
+        }
+    }
+    
+    // Mark: -Cart
+    @IBAction func decreaseQty(_ sender: Any) {
+        if qty >= 2 {
+            qty -= 1
+            labelQty.text = String(qty)
+            
+            let newText = "Add \(qty) To Cart"
+            buttonAddToCart.setTitle(newText, for: .normal)
+            
+            if let price = meal?.price {
+                labelTotal.text = "$\(price * Float(qty))"
+            }
+        }
+    }
+    
+    @IBAction func increaseQty(_ sender: Any) {
+        if qty < 99 {
+            qty += 1
+            labelQty.text = String(qty)
+            
+            let newText = "Add \(qty) To Cart"
+            buttonAddToCart.setTitle(newText, for: .normal)
+            
+            if let price = meal?.price {
+                labelTotal.text = "$\(price * Float(qty))"
+            }
+        }
+    }
+    
+    @IBAction func addToCart(_ sender: Any) {
+    }
+    
 }
